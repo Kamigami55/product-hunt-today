@@ -7,7 +7,8 @@
 		"build": "remotion render src/index.tsx HelloWorld out/video.mp4",
 		"upgrade": "remotion upgrade",
 		"server": "ts-node server.tsx",
-		"test": "eslint src --ext ts,tsx,js,jsx && tsc"
+		"test": "eslint src --ext ts,tsx,js,jsx && tsc",
+		"fetch": "zx scripts/fetchProductHunt.mjs"
 	},
 	"repository": {},
 	"license": "UNLICENSED",
