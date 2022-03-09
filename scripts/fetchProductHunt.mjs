@@ -1,10 +1,21 @@
 #!/usr/bin/env zx
 
+// To run this script to fetch today featured products:
+// yarn fetch
+// or specify a date:
+// yarn fetch 2020/01/01
+
 import 'zx/globals';
 import 'dotenv/config';
 
 /* eslint-disable no-undef */
 $.verbose = false;
+
+const dateArg = argv['_']?.[1] || new Date().setDate(new Date().getDate() - 1);
+const postedAfterDate = new Date(dateArg)
+postedAfterDate.setHours(0, 0, 0, 0)
+const postedBeforeDate = new Date(postedAfterDate)
+postedBeforeDate.setDate(postedAfterDate.getDate() + 1)
 
 const res = await fetch('https://api.producthunt.com/v2/api/graphql', {
 	method: 'POST',
@@ -16,7 +27,7 @@ const res = await fetch('https://api.producthunt.com/v2/api/graphql', {
 	body: JSON.stringify({
 		query: `
         {
-          posts(first: 10, order: VOTES, featured: true, postedBefore: "2022-03-05T00:00:00Z", postedAfter: "2022-03-04T00:00:00Z") {
+          posts(first: 5, order: RANKING, featured: true, postedBefore: "${postedBeforeDate.toISOString()}", postedAfter: "${postedAfterDate.toISOString()}") {
             edges {
               node {
                 name
@@ -59,3 +70,5 @@ const products = json.data.posts.edges
 	});
 
 console.log(products);
+
+fs.writeFileSync(path.resolve(__dirname, 'today.json'), JSON.stringify(products));
