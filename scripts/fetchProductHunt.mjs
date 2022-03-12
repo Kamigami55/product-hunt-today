@@ -7,6 +7,7 @@
 
 import 'zx/globals';
 import 'dotenv/config';
+import prettier from 'prettier'
 
 /* eslint-disable no-undef */
 $.verbose = false;
@@ -71,4 +72,4 @@ const products = json.data.posts.edges
 
 console.log(products);
 
-fs.writeFileSync(path.resolve(__dirname, 'today.json'), JSON.stringify(products));
+fs.writeFileSync(path.resolve(__dirname, 'today.json'), prettier.format(JSON.stringify(products), { parser: 'json' }));
