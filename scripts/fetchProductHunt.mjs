@@ -63,10 +63,13 @@ const res = await fetch('https://api.producthunt.com/v2/api/graphql', {
 const json = await res.json();
 const products = json.data.posts.edges
 	.map((edge) => edge.node)
-	.map((product) => {
+	.map((product, index) => {
 		return {
 			name: product.name,
 			tagline: product.tagline,
+      rank: index + 1,
+      thumbnail: product.thumbnail?.url,
+      votesCount: product.votesCount,
 		};
 	});
 
