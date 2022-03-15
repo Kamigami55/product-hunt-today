@@ -78,6 +78,6 @@ const products = json.data.posts.edges
 console.log(products)
 
 fs.writeFileSync(
-  path.resolve(__dirname, 'today.json'),
+  path.resolve(__dirname, '../data/today.json'),
   prettier.format(JSON.stringify(products), { parser: 'json' })
 )

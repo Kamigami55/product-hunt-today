@@ -3,10 +3,19 @@ import {HelloWorld} from './HelloWorld';
 import {Logo} from './HelloWorld/Logo';
 import {Subtitle} from './HelloWorld/Subtitle';
 import {Title} from './HelloWorld/Title';
+import { ProductHuntToday } from './ProductHuntToday';
 
 export const RemotionVideo: React.FC = () => {
 	return (
 		<>
+			<Composition
+				id="ProductHuntToday"
+				component={ProductHuntToday}
+				durationInFrames={150}
+				fps={30}
+				width={720}
+				height={720}
+			/>
 			<Composition
 				id="HelloWorld"
 				component={HelloWorld}
