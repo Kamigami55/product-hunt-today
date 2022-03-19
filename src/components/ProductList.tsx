@@ -18,7 +18,7 @@ export const ProductList = ({ products }) => {
 
   return (
     <div
-      className="flex flex-grow flex-col justify-between p-4"
+      className="flex flex-grow flex-col justify-between"
       style={{ opacity: opacity }}
     >
       {products.map((product, index) => (

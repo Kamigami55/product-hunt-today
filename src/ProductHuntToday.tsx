@@ -11,8 +11,8 @@ export const ProductHuntToday = () => {
   return (
     <div style={{ flex: 1, backgroundColor: '#da5630' }}>
       <Sequence from={0} durationInFrames={videoConfig.durationInFrames}>
-        <div className="relative h-full w-full px-8 py-10">
-          <div className="relative flex h-full w-full flex-col rounded-xl bg-white">
+        <div className="relative h-full w-full p-8">
+          <div className="relative flex h-full w-full flex-col rounded-xl bg-white p-4">
             <h1
               className="text-center text-4xl font-bold"
               style={{ color: '#da5630' }}

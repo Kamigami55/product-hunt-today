@@ -35,10 +35,10 @@ export const Product = ({ product, transitionStart }) => {
         <img src={product.thumbnail} alt="" className="h-12 w-12" />
         <div>
           <h2 className="text-4xl">{product.name}</h2>
-          <h3 className="text-2xl">{product.tagline}</h3>
+          <h3 className="text-2xl leading-6">{product.tagline}</h3>
         </div>
       </div>
-      <div className="flex flex-col border-2 border-gray-200 py-1 px-2 text-center">
+      <div className="flex flex-col rounded border-2 border-gray-200 py-1 px-2 text-center">
         <p className="text-xl font-semibold">▲</p>
         <p className="text-xl font-semibold">{product.votesCount}</p>
       </div>

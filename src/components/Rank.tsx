@@ -29,7 +29,7 @@ export const Rank = ({ rank }) => {
       className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full"
       style={{ ...RANK_TO_COLOR[rank] }}
     >
-      <p className="text-xl font-bold">{rank}</p>
+      <p className="text-2xl font-bold">{rank}</p>
     </div>
   )
 }
