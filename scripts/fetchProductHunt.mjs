@@ -18,7 +18,6 @@ const dateArg =
   argv['_']?.[1] || new Date().setUTCDate(new Date().getUTCDate() - 1)
 const postedAfterDate = new Date(dateArg)
 postedAfterDate.setUTCHours(-8, 0, 0, 0) // Pacific Time (-8)
-// TODO refine timezone
 const postedBeforeDate = new Date(postedAfterDate)
 postedBeforeDate.setUTCDate(postedAfterDate.getUTCDate() + 1)
 
@@ -79,7 +78,7 @@ const products = json.data.posts.edges
     }
   })
 
-const result = { date: postedAfterDate.toISOString(), products: products }
+const result = { date: postedBeforeDate.toISOString(), products: products }
 console.log(result)
 
 fs.writeFileSync(
