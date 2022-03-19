@@ -3,7 +3,7 @@ name: Tweet Daily Video
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *" # Daily (00:00 every day)
+    - cron: "5 8 * * *" # Daily (00:05 every day in Pacific Timezone)
 
 env:
   REACT_APP_PRODUCT_HUNT_API_KEY: ${{ secrets.REACT_APP_PRODUCT_HUNT_API_KEY }}
