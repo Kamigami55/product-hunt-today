@@ -57,11 +57,14 @@ const composeMainContent = () => {
 
 ${formattedProducts}
 
-🧵 Detail & links in the thread 👇`
+`
 
   // 280 - 45
   if (content.length < 235) {
-    content += '\n👉 Follow to bring #ProductHunt to your feed'
+    content += `👉 Follow to bring #ProductHunt to your feed
+🧵 Detail & links in the thread 👇`
+  } else {
+    content += '🧵 Detail & links in the thread 👇'
   }
 
   return content
