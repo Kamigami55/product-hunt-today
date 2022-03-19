@@ -42,18 +42,29 @@ const composeProduct = (product) => {
 
 const composeMainContent = () => {
   const { products, date } = data
-  const formatedDate = formatInTimeZone(
+  const formattedDate = formatInTimeZone(
     new Date(date),
     'America/Los_Angeles',
     'MMMM d, yyyy'
   )
 
-  return `🔥 Top 5 featured in Product Hunt Today
-📅 ${formatedDate}
+  const formattedProducts = products
+    .map((product) => composeProduct(product))
+    .join('\n')
 
-${products.map((product) => composeProduct(product)).join('\n')}
+  let content = `🔥 Top 5 in Product Hunt yesterday
+📅 ${formattedDate}
 
-👉 Follow to bring #ProductHunt rising stars to your feed`
+${formattedProducts}
+
+🧵 Detail & links in the thread 👇`
+
+  // 280 - 45
+  if (content.length < 235) {
+    content += '\n👉 Follow to bring #ProductHunt to your feed'
+  }
+
+  return content
 }
 
 const _composeDetailContentLong = (product) => {
