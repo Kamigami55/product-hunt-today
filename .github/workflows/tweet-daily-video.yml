@@ -1,0 +1,32 @@
+name: Tweet Daily Video
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *" # Daily (00:00 every day)
+
+env:
+  REACT_APP_PRODUCT_HUNT_API_KEY: ${{ secrets.REACT_APP_PRODUCT_HUNT_API_KEY }}
+  TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
+  TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+  TWITTER_ACCESS_TOKEN_KEY: ${{ secrets.TWITTER_ACCESS_TOKEN_KEY }}
+  TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+
+jobs:
+  render:
+    name: Tweet Daily Video
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - uses: actions/setup-node@main
+      - run: sudo apt update
+      - run: sudo apt install ffmpeg
+      - run: mkdir data
+      - run: yarn install
+      - run: yarn fetch
+      - run: yarn build
+      - run: yarn post-tweet
+      - uses: actions/upload-artifact@v2
+        with:
+          name: video.mp4
+          path: out/video.mp4
