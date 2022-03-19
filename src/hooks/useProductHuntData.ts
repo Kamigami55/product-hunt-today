@@ -1,5 +1,6 @@
-import products from '../../data/today.json'
+import data from '../../data/today.json'
 
 export default function useProductHuntData() {
-  return products
+  const { products, date } = data
+  return { products, date }
 }

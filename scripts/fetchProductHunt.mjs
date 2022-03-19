@@ -14,11 +14,13 @@ import prettier from 'prettier'
 /* eslint-disable no-undef */
 $.verbose = false
 
-const dateArg = argv['_']?.[1] || new Date().setDate(new Date().getDate() - 1)
+const dateArg =
+  argv['_']?.[1] || new Date().setUTCDate(new Date().getUTCDate() - 1)
 const postedAfterDate = new Date(dateArg)
-postedAfterDate.setHours(0, 0, 0, 0)
+postedAfterDate.setUTCHours(-8, 0, 0, 0) // Pacific Time (-8)
+// TODO refine timezone
 const postedBeforeDate = new Date(postedAfterDate)
-postedBeforeDate.setDate(postedAfterDate.getDate() + 1)
+postedBeforeDate.setUTCDate(postedAfterDate.getUTCDate() + 1)
 
 const res = await fetch('https://api.producthunt.com/v2/api/graphql', {
   method: 'POST',
@@ -75,9 +77,10 @@ const products = json.data.posts.edges
     }
   })
 
-console.log(products)
+const result = { date: postedAfterDate.toISOString(), products: products }
+console.log(result)
 
 fs.writeFileSync(
   path.resolve(__dirname, '../data/today.json'),
-  prettier.format(JSON.stringify(products), { parser: 'json' })
+  prettier.format(JSON.stringify(result), { parser: 'json' })
 )
