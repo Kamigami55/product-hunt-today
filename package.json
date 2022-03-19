@@ -9,7 +9,7 @@
 		"server": "ts-node server.tsx",
 		"test": "eslint src --ext ts,tsx,js,jsx && tsc",
 		"fetch": "zx scripts/fetchProductHunt.mjs",
-		"post-tweet": "node scripts/postTweet.js",
+		"post-tweet": "zx scripts/postTweet.mjs",
 		"lint": "eslint src --ext ts,tsx,js,jsx",
 		"lint:fix": "eslint src --ext ts,tsx,js,jsx --fix"
 	},

@@ -41,8 +41,8 @@ const res = await fetch('https://api.producthunt.com/v2/api/graphql', {
                 description
                 thumbnail {
                   url
-                  videoUrl
                 }
+                url
                 media {
                   type
                   url
@@ -71,6 +71,8 @@ const products = json.data.posts.edges
     return {
       name: product.name,
       tagline: product.tagline,
+      description: product.description,
+      url: product.url.split('?')[0],
       rank: index + 1,
       thumbnail: product.thumbnail?.url,
       votesCount: product.votesCount,
