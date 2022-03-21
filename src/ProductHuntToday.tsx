@@ -17,7 +17,7 @@ export const ProductHuntToday = () => {
               className="text-center text-4xl font-bold"
               style={{ color: '#da5630' }}
             >
-              Top 5 in Product Hunt Yesterday
+              Top 5 on Product Hunt yesterday
             </h1>
             <h2 className="text-center text-2xl text-gray-400">
               {formatInTimeZone(

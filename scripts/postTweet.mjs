@@ -52,20 +52,13 @@ const composeMainContent = () => {
     .map((product) => composeProduct(product))
     .join('\n')
 
-  let content = `🔥 Top 5 in Product Hunt yesterday
-📅 ${formattedDate}
+  let content = `🔥 Top 5 on Product Hunt yesterday
+📅 ${formattedDate} #ProductHunt
 
 ${formattedProducts}
 
+🧵 Detail & links in the thread 👇
 `
-
-  // 280 - 45
-  if (content.length < 235) {
-    content += `👉 Follow to bring #ProductHunt to your feed
-🧵 Detail & links in the thread 👇`
-  } else {
-    content += '🧵 Detail & links in the thread 👇'
-  }
 
   return content
 }
@@ -120,6 +113,9 @@ async function run() {
     ...products.map((product) => ({
       text: composeDetailContent(product),
     })),
+    {
+      text: '👉 Follow @ProductHunToday bring #ProductHunt to your feed. Never missing trending hunts again',
+    },
   ])
 }
 
