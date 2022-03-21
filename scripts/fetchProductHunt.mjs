@@ -11,10 +11,21 @@ import 'dotenv/config'
 
 import prettier from 'prettier'
 
-import { selectThreeImages } from '../src/utils/selectThreeImages'
-
 /* eslint-disable no-undef */
 $.verbose = false
+
+const selectThreeImages = (images) => {
+  if (images.length < 1) {
+    return []
+  }
+  if (images.length === 1) {
+    return [images[0], images[0], images[0]]
+  }
+  if (images.length === 2) {
+    return [images[0], images[1], images[0]]
+  }
+  return [images[0], images[1], images[2]]
+}
 
 const dateArg =
   argv['_']?.[1] || new Date().setUTCDate(new Date().getUTCDate() - 1)
