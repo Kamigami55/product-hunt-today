@@ -1,6 +1,7 @@
 import { interpolate, useCurrentFrame } from 'remotion'
 
 import { Rank } from './Rank'
+import { Thumbnail } from './Thumbnail'
 
 export const ProductListProduct = ({ product, transitionStart }) => {
   const frame = useCurrentFrame()
@@ -28,7 +29,8 @@ export const ProductListProduct = ({ product, transitionStart }) => {
     >
       <div className="flex items-center gap-3">
         <Rank rank={product.rank} />
-        <img src={product.thumbnail} alt="" className="h-14 w-14" />
+        <Thumbnail src={product.thumbnail} className="h-14 w-14" />
+
         <div>
           <h2 className="mb-1 text-4xl leading-8 text-gray-900 line-clamp-2">
             {product.name}

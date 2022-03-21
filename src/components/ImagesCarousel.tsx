@@ -1,4 +1,4 @@
-import { spring, useCurrentFrame, useVideoConfig } from 'remotion'
+import { Img, spring, useCurrentFrame, useVideoConfig } from 'remotion'
 
 export const ImagesCarousel = ({ images }) => {
   const frame = useCurrentFrame()
@@ -33,7 +33,7 @@ export const ImagesCarousel = ({ images }) => {
         }}
       >
         {images.map((image) => (
-          <img
+          <Img
             src={image}
             alt=""
             className="h-full w-full flex-shrink-0 object-contain object-center"
