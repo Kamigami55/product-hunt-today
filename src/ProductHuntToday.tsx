@@ -28,7 +28,7 @@ export const ProductHuntToday = () => {
             </h2>
             <ProductList products={products} />
           </div>
-          <span className="fixed bottom-1 right-2 float-right text-base font-light text-white">
+          <span className="fixed bottom-1 right-8 float-right text-xl font-light text-white">
             @ProductHunToday
           </span>
         </div>
