@@ -11,6 +11,8 @@ import 'dotenv/config'
 
 import prettier from 'prettier'
 
+import { selectThreeImages } from '../src/utils/selectThreeImages'
+
 /* eslint-disable no-undef */
 $.verbose = false
 
@@ -42,13 +44,17 @@ const res = await fetch('https://api.producthunt.com/v2/api/graphql', {
                   url
                 }
                 url
+                votesCount
+                commentsCount
+                user {
+                  name
+                  profileImage
+                }
                 media {
                   type
                   url
                   videoUrl
                 }
-                votesCount
-                commentsCount
                 topics {
                   edges {
                     node {
@@ -75,6 +81,16 @@ const products = json.data.posts.edges
       rank: index + 1,
       thumbnail: product.thumbnail?.url,
       votesCount: product.votesCount,
+      user: {
+        name: product.user?.name,
+        profileImage: product.user?.profileImage,
+      },
+      images: selectThreeImages(
+        product.media
+          ?.filter((media) => media.type === 'image')
+          .map((media) => media.url)
+      ),
+      topics: product.topics?.edges?.map((edge) => edge.node.name),
     }
   })
 

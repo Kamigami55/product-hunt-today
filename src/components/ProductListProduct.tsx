@@ -2,7 +2,7 @@ import { interpolate, useCurrentFrame } from 'remotion'
 
 import { Rank } from './Rank'
 
-export const Product = ({ product, transitionStart }) => {
+export const ProductListProduct = ({ product, transitionStart }) => {
   const frame = useCurrentFrame()
 
   const opacity =

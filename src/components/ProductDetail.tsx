@@ -1,14 +1,14 @@
 import { interpolate, useCurrentFrame, useVideoConfig } from 'remotion'
 
-import { ProductListProduct } from './ProductListProduct'
+import { ProductDetailProduct } from './ProductDetailProduct'
 
-export const ProductList = ({ products }) => {
+export const ProductDetail = ({ product }) => {
   const frame = useCurrentFrame()
   const videoConfig = useVideoConfig()
 
   const opacity = interpolate(
     frame,
-    [videoConfig.durationInFrames - 20, videoConfig.durationInFrames - 5],
+    [videoConfig.durationInFrames - 15, videoConfig.durationInFrames - 5],
     [1, 0],
     {
       extrapolateLeft: 'clamp',
@@ -21,13 +21,7 @@ export const ProductList = ({ products }) => {
       className="flex h-full flex-col justify-between"
       style={{ opacity: opacity }}
     >
-      {products.map((product, index) => (
-        <ProductListProduct
-          key={product.name}
-          product={product}
-          transitionStart={index * 10}
-        />
-      ))}
+      <ProductDetailProduct product={product} />
     </div>
   )
 }
