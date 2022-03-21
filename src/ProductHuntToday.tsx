@@ -1,6 +1,7 @@
-import { formatInTimeZone } from 'date-fns-tz'
 import { Sequence, useVideoConfig } from 'remotion'
 
+import { BaseBackground } from './components/BaseBackground'
+import { ContentWrapper } from './components/ContentWrapper'
 import { ProductList } from './components/ProductList'
 import useProductHuntData from './hooks/useProductHuntData'
 
@@ -10,28 +11,16 @@ export const ProductHuntToday = () => {
 
   return (
     <div style={{ flex: 1, backgroundColor: '#da5630' }}>
+      {/* Background */}
       <Sequence from={0} durationInFrames={videoConfig.durationInFrames}>
-        <div className="relative h-full w-full p-8">
-          <div className="relative flex h-full w-full flex-col rounded-xl bg-white p-4">
-            <h1
-              className="text-center text-4xl font-bold"
-              style={{ color: '#da5630' }}
-            >
-              Top 5 on Product Hunt yesterday
-            </h1>
-            <h2 className="text-center text-2xl text-gray-400">
-              {formatInTimeZone(
-                new Date(date),
-                'America/Los_Angeles',
-                'MMMM d, yyyy'
-              )}
-            </h2>
-            <ProductList products={products} />
-          </div>
-          <span className="fixed bottom-1 right-8 float-right text-xl font-light text-white">
-            @ProductHunToday
-          </span>
-        </div>
+        <BaseBackground date={date} />
+      </Sequence>
+
+      {/* ProductList */}
+      <Sequence from={0} durationInFrames={videoConfig.durationInFrames}>
+        <ContentWrapper>
+          <ProductList products={products} />
+        </ContentWrapper>
       </Sequence>
     </div>
   )
