@@ -5,25 +5,21 @@ import { Rank } from './Rank'
 export const Product = ({ product, transitionStart }) => {
   const frame = useCurrentFrame()
 
-  const opacity = interpolate(
-    frame,
-    [transitionStart, transitionStart + 15],
-    [0, 1],
-    {
-      extrapolateLeft: 'clamp',
-      extrapolateRight: 'clamp',
-    }
-  )
+  const opacity =
+    frame < 3
+      ? 1
+      : interpolate(frame, [transitionStart, transitionStart + 15], [0, 1], {
+          extrapolateLeft: 'clamp',
+          extrapolateRight: 'clamp',
+        })
 
-  const translate = interpolate(
-    frame,
-    [transitionStart, transitionStart + 15],
-    [20, 0],
-    {
-      extrapolateLeft: 'clamp',
-      extrapolateRight: 'clamp',
-    }
-  )
+  const translate =
+    frame < 3
+      ? 0
+      : interpolate(frame, [transitionStart, transitionStart + 15], [20, 0], {
+          extrapolateLeft: 'clamp',
+          extrapolateRight: 'clamp',
+        })
 
   return (
     <div
