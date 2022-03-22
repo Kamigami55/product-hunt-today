@@ -69,3 +69,15 @@ yarn build
 ```console
 yarn post-tweet
 ```
+
+## Contribute
+
+PRs are welcome!
+
+Feel free to DM me on Twitter [@EasonChang_me](https://twitter.com/EasonChang_me) if any suggestions
+
+## Support
+
+Support me in creating more awesome projects!
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/easonchang)
