@@ -1,53 +1,70 @@
-# Remotion video
+# Product Hunt Today
 
-<p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <img src="https://github.com/remotion-dev/logo/raw/main/withtitle/element-0.png">
-  </a>
-</p>
+<img alt="Product Hunt Today Twitter account" src="https://user-images.githubusercontent.com/8737381/159538213-f5763a39-e12e-4613-af9d-674ab0ce83f0.png">
 
-Welcome to your Remotion project!
+A Twitter bot [@ProductHunToday](https://twitter.com/ProductHunToday) that tweet trending [Product Hunt](https://www.producthunt.com/) products every day, in short video!
 
-## Commands
+## Tech stack
 
-**Start Preview**
+- [Remotion](https://www.remotion.dev/): Generate short video in React!
+- [Product Hunt API 2.0 (GraphQL)](https://api.producthunt.com/v2/docs): Fetch trending products
+- [Twitter API](https://developer.twitter.com/en/docs/twitter-api): Tweet post thread with video
+- [Tailwind CSS](https://tailwindcss.com/): UI of video content
+- [Github Actions](https://github.com/features/actions): Run scheduled job everyday (fetch data from Product Hunt -> generate video -> post Twitter)
+- [google/zx](https://github.com/google/zx): Write modern shell script in JavaScript
 
-```console
-npm start
-```
+## Sample tweet
 
-**Render video**
+https://twitter.com/ProductHunToday/status/1506186218714849287
 
-```console
-npm run build
-```
+<img alt="Twitter post from Product Hunt Today" src="https://user-images.githubusercontent.com/8737381/159538226-27f92c63-b072-4dde-a1f9-865d7df3b8e8.png">
 
-**Server render demo**
+## Get started
 
-```console
-npm run server
-```
-
-See [docs for server-side rendering](https://www.remotion.dev/docs/ssr) here.
-
-**Upgrade Remotion**
+### Install dependencies
 
 ```console
-npm run upgrade
+yarn install
 ```
 
-## Docs
+### Setup environment variables
 
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
+Create `.env` file, with your [Product Hunt](https://api.producthunt.com/v2/docs) & [Twitter](https://developer.twitter.com/en/docs/twitter-api) API key
 
-## Help
+```env
+REACT_APP_PRODUCT_HUNT_API_KEY="<your-key>"
+TWITTER_CONSUMER_KEY="<your-key>"
+TWITTER_CONSUMER_SECRET="<your-key>"
+TWITTER_ACCESS_TOKEN_KEY="<your-key>"
+TWITTER_ACCESS_TOKEN_SECRET="<your-key>"
+```
 
-We provide help [on our Discord server](https://discord.gg/6VzzNDwUwV).
+### Fetch products
 
-## Issues
+This will call Product Hunt API, and store result in `<ProjectRoot>/data/today.json`
 
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
+```console
+yarn fetch
+```
 
-## License
+### Start preview
 
-Notice that for some entities a company license is needed. Read [the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+This will open browser to preview video
+
+```console
+yarn start
+```
+
+### Render video
+
+This will store generated video in `<ProjectRoot>/out/video.mp4`
+
+```console
+yarn build
+```
+
+### Post to Twitter
+
+```console
+yarn post-tweet
+```
