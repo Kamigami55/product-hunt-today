@@ -2,7 +2,7 @@
 
 <img alt="Product Hunt Today Twitter account" src="https://user-images.githubusercontent.com/8737381/159538213-f5763a39-e12e-4613-af9d-674ab0ce83f0.png">
 
-A Twitter bot [@ProductHunToday](https://twitter.com/ProductHunToday) that tweet trending [Product Hunt](https://www.producthunt.com/) products every day, in short video!
+A Twitter bot [@ProductHunToday](https://twitter.com/ProductHunToday) that tweets trending [Product Hunt](https://www.producthunt.com/) products every day, in short video!
 
 ## Tech stack
 
