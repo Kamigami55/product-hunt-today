@@ -12,6 +12,7 @@ A Twitter bot [@ProductHunToday](https://twitter.com/ProductHunToday) that tweet
 - [Tailwind CSS](https://tailwindcss.com/): UI of video content
 - [Github Actions](https://github.com/features/actions): Run scheduled job everyday (fetch data from Product Hunt -> generate video -> post Twitter)
 - [google/zx](https://github.com/google/zx): Write modern shell script in JavaScript
+- Node.js: v16.14.0
 
 ## Sample tweet
 
