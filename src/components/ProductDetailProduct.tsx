@@ -32,7 +32,7 @@ export const ProductDetailProduct = ({ product }) => {
               {topics.map((topic) => (
                 <span
                   key={topic}
-                  className="box-border rounded border border-gray-400 bg-gray-50 px-2 py-1 text-sm text-gray-500"
+                  className="box-border flex-shrink-0 rounded border border-gray-400 bg-gray-50 px-2 py-1 text-sm text-gray-500"
                 >
                   {topic}
                 </span>
