@@ -22,13 +22,13 @@ export const ProductDetailProduct = ({ product }) => {
   return (
     <div style={{ opacity: opacity, transform: `translateY(${translate}px)` }}>
       <div className="mb-3 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-4 overflow-hidden">
+        <div className="flex flex-grow items-center gap-4 overflow-hidden">
           <Thumbnail src={thumbnail} className="h-20 w-20" />
-          <div>
+          <div className="flex-grow">
             <h2 className="mb-2 text-4xl leading-8 text-gray-900 line-clamp-2">
               {name}
             </h2>
-            <div className="flex items-center gap-1">
+            <div className="overflow-fadeout-right flex items-center gap-1">
               {topics.map((topic) => (
                 <span
                   key={topic}
