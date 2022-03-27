@@ -7,7 +7,8 @@ export const ImagesCarousel = ({ images }) => {
   const { fps } = useVideoConfig()
 
   const springConfig = {
-    mass: 0.5,
+    mass: 0.3,
+    stiffness: 150,
   }
 
   const translate1 = spring({

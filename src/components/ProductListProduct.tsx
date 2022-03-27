@@ -9,7 +9,7 @@ export const ProductListProduct = ({ product, transitionStart }) => {
   const opacity =
     frame < 3
       ? 1
-      : interpolate(frame, [transitionStart, transitionStart + 15], [0, 1], {
+      : interpolate(frame, [transitionStart, transitionStart + 10], [0, 1], {
           extrapolateLeft: 'clamp',
           extrapolateRight: 'clamp',
         })
@@ -17,7 +17,7 @@ export const ProductListProduct = ({ product, transitionStart }) => {
   const translate =
     frame < 3
       ? 0
-      : interpolate(frame, [transitionStart, transitionStart + 15], [20, 0], {
+      : interpolate(frame, [transitionStart, transitionStart + 10], [20, 0], {
           extrapolateLeft: 'clamp',
           extrapolateRight: 'clamp',
         })

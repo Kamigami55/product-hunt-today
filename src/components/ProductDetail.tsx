@@ -8,7 +8,7 @@ export const ProductDetail = ({ product }) => {
 
   const opacity = interpolate(
     frame,
-    [videoConfig.durationInFrames - 15, videoConfig.durationInFrames - 5],
+    [videoConfig.durationInFrames - 8, videoConfig.durationInFrames],
     [1, 0],
     {
       extrapolateLeft: 'clamp',

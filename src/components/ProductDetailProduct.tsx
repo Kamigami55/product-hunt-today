@@ -9,12 +9,12 @@ export const ProductDetailProduct = ({ product }) => {
     product
   const frame = useCurrentFrame()
 
-  const opacity = interpolate(frame, [0, 15], [0, 1], {
+  const opacity = interpolate(frame, [0, 8], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   })
 
-  const translate = interpolate(frame, [0, 15], [20, 0], {
+  const translate = interpolate(frame, [0, 8], [20, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   })
