@@ -1,8 +1,8 @@
 import { interpolate, useCurrentFrame } from 'remotion'
 
+import { Image } from './Image'
 import { ImagesCarousel } from './ImagesCarousel'
 import { Rank } from './Rank'
-import { Thumbnail } from './Thumbnail'
 
 export const ProductDetailProduct = ({ product }) => {
   const { rank, thumbnail, name, topics, description, images, votesCount } =
@@ -23,7 +23,7 @@ export const ProductDetailProduct = ({ product }) => {
     <div style={{ opacity: opacity, transform: `translateY(${translate}px)` }}>
       <div className="mb-3 flex items-center justify-between gap-4">
         <div className="flex flex-grow items-center gap-4 overflow-hidden">
-          <Thumbnail src={thumbnail} className="h-20 w-20" />
+          <Image src={thumbnail} className="h-20 w-20" />
           <div className="flex-grow">
             <h2 className="mb-2 text-4xl leading-8 text-gray-900 line-clamp-2">
               {name}
