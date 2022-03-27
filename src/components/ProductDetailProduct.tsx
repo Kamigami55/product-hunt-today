@@ -25,9 +25,7 @@ export const ProductDetailProduct = ({ product }) => {
         <div className="flex flex-grow items-center gap-4 overflow-hidden">
           <Image src={thumbnail} className="h-20 w-20" />
           <div className="flex-grow">
-            <h2 className="mb-2 text-4xl leading-8 text-gray-900 line-clamp-2">
-              {name}
-            </h2>
+            <h2 className="mb-1 text-4xl text-gray-900 line-clamp-2">{name}</h2>
             <div className="overflow-fadeout-right flex items-center gap-1">
               {topics.map((topic) => (
                 <span

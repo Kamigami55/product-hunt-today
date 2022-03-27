@@ -32,7 +32,7 @@ export const ProductListProduct = ({ product, transitionStart }) => {
         <Image src={product.thumbnail} className="h-14 w-14" />
 
         <div>
-          <h2 className="mb-1 text-4xl leading-8 text-gray-900 line-clamp-2">
+          <h2 className="text-4xl text-gray-900 line-clamp-2">
             {product.name}
           </h2>
           <h3 className="text-2xl leading-7 text-gray-700 line-clamp-2">
