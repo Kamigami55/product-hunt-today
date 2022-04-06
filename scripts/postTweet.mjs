@@ -40,7 +40,9 @@ const composeProduct = (product) => {
   return `${product.rank}. ${product.name} 🔼 ${product.votesCount}`
 }
 
-const composeMainContent = () => {
+// =============================================================================
+
+const _composeMainContentLong = () => {
   const { products, date } = data
   const formattedDate = formatInTimeZone(
     new Date(date),
@@ -62,6 +64,35 @@ ${formattedProducts}
 
   return content
 }
+
+const _composeMainContentShort = () => {
+  const { products, date } = data
+  const formattedDate = formatInTimeZone(
+    new Date(date),
+    'America/Los_Angeles',
+    'MMMM d, yyyy'
+  )
+
+  const formattedProducts = products
+    .map((product) => composeProduct(product))
+    .join('\n')
+
+  let content = `🔥 Top 5 on Product Hunt yesterday
+📅 ${formattedDate} #ProductHunt
+
+${formattedProducts}`
+
+  return content
+}
+
+const composeMainContent = () => {
+  if (_composeMainContentLong().length > 280) {
+    return _composeMainContentShort()
+  }
+  return _composeMainContentLong()
+}
+
+// =============================================================================
 
 const _composeDetailContentLong = (product) => {
   const { name, description, url, rank, votesCount } = product
@@ -89,6 +120,8 @@ const composeDetailContent = (product) => {
   }
   return _composeDetailContentLong(product)
 }
+
+// =============================================================================
 
 async function run() {
   const { products } = data
