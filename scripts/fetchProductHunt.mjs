@@ -27,6 +27,15 @@ const selectThreeImages = (images) => {
   return [images[0], images[1], images[2]]
 }
 
+// For product detail carousel images, reduce image file size & video build time
+const constructImgixParameter = (src) => {
+  const url = new URL(src)
+  url.searchParams.set('w', '624')
+  url.searchParams.set('h', '351')
+  url.searchParams.set('fit', 'clip')
+  return url.toString()
+}
+
 const dateArg =
   argv['_']?.[1] || new Date().setUTCDate(new Date().getUTCDate() - 1)
 const postedAfterDate = new Date(dateArg)
@@ -99,7 +108,7 @@ const products = json.data.posts.edges
       images: selectThreeImages(
         product.media
           ?.filter((media) => media.type === 'image')
-          .map((media) => media.url)
+          .map((media) => constructImgixParameter(media.url))
       ),
       topics: product.topics?.edges?.map((edge) => edge.node.name),
     }
